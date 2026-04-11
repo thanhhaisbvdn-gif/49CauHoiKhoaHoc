@@ -5,544 +5,208 @@ export interface Question {
   answerIndex: number;
 }
 
-export const questions: Question[] = [
-  {
-    id: 1,
-    question: "Các yếu tố cần cho sự sống và phát triển của thực vật là:",
-    options: [
-      "Ánh sáng, không khí, nước, chất khoáng và cây giống.",
-      "Ánh sáng, không khí, nước, chất khoáng và nhiệt độ",
-      "Ánh sáng, không khí, nước, chất khoáng và người chăm sóc.",
-      "Ánh sáng, không khí, nước, chất khoáng"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 2,
-    question: "Phát biểu nào sau đây là ĐÚNG về động vật?",
-    options: [
-      "Động vật không có khả năng tự tổng hợp chất dinh dưỡng.",
-      "Trong quá trình trao đổi chất, động vật thải ra môi trường thức ăn, nước uống.",
-      "Động vật có thể tự tổng hợp chất dinh dưỡng như thực vật.",
-      "Động vật không cần thải chất bã ra môi trường."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 3,
-    question: "Tuỳ theo độ tuổi, trạng thái sinh lí và môi trường sống mà nấm có:",
-    options: [
-      "Hình dạng, kích thước, màu sắc cố định",
-      "Hình dạng, kích thước cố định",
-      "Kích thước, màu sắc không cố định",
-      "Hình dạng, kích thước, màu sắc không cố định"
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 4,
-    question: "Trong các thức ăn dưới đây, nhóm nào chứa nhiều chất bột đường?",
-    options: [
-      "Cá, trứng, sữa, thịt, hải sản, đậu nành.",
-      "Cơm, bánh mỳ, khoai, sắn.",
-      "Bơ, lạc, dầu dừa, cá hồi.",
-      "Sữa, hoa quả, rau xanh, cà rốt."
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 5,
-    question: "Đâu KHÔNG phải vai trò của nước đối với cơ thể?",
-    options: [
-      "Giúp tiêu hóa thức ăn, hòa tan chất dinh dưỡng và bài tiết chất thải.",
-      "Giúp làm mát cơ thể khi thoát mồ hôi.",
-      "Giúp vận chuyển các chất dinh dưỡng đi khắp cơ thể.",
-      "Giúp cơ thể có đầy đủ năng lượng sống."
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 6,
-    question: "Mỗi sinh vật trong chuỗi thức ăn được gọi là gì?",
-    options: [
-      "Một mắt xích",
-      "Một nguồn thức ăn",
-      "Một vật chủ",
-      "Một mắt xích quan trọng"
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 7,
-    question: "Thực vật dùng năng lượng ánh sáng mặt trời để làm gì?",
-    options: [
-      "Trao đổi chất",
-      "Tổng hợp các chất hữu cơ từ các chất vô cơ",
-      "Hô hấp",
-      "Quang hợp"
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 8,
-    question: "Tại sao không nên ăn đồ ăn đã hết hạn sử dụng?",
-    options: [
-      "Vì có thể bị nhiễm khuẩn, nấm mốc gây hại cho sức khỏe.",
-      "Vì đồ ăn sẽ không còn ngon nữa.",
-      "Vì đồ ăn đã mất hết giá trị dinh dưỡng.",
-      "Cả 3 phương án trên đều đúng."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 9,
-    question: "Đâu không thể là mắt xích liền sau của con gà?",
-    options: [
-      "Con vịt",
-      "Con hổ",
-      "Con báo",
-      "Con sư tử"
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 10,
-    question: "Vì sao chim di cư vào mùa đông?",
-    options: [
-      "Vì muốn khám phá các vùng đất mới",
-      "Vì nhiệt độ thấp và thiếu thức ăn ở nơi cư trú cũ",
-      "Vì muốn tránh những loài săn mồi",
-      "Vì ánh sáng ban ngày ngắn hơn"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 11,
-    question: "Cây sẽ thế nào nếu không được tưới nước?",
-    options: [
-      "Cây sẽ di chuyển đến nơi có nước",
-      "Cây sẽ phát triển tốt và mạnh khỏe",
-      "Cây sẽ héo và cuối cùng sẽ chết",
-      "Cây vẫn bình thường"
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 12,
-    question: "Phát biểu nào sau đây là SAI?",
-    options: [
-      "Động vật lấy thức ăn từ không khí.",
-      "Động vật lấy thức ăn từ cả thực vật và động vật.",
-      "Động vật cần nước để duy trì sự sống.",
-      "Động vật không thể tự tổng hợp chất hữu cơ."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 13,
-    question: "Nấm có thể sống ở đâu?",
-    options: [
-      "Đất ẩm",
-      "Rơm rạ mục",
-      "Thức ăn",
-      "Cả 3 phương án trên đều đúng"
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 14,
-    question: "Trong các thức ăn dưới đây, nhóm chất nào chứa nhiều chất đạm?",
-    options: [
-      "Cá, trứng, sữa, thịt, hải sản, đậu nành.",
-      "Cơm, bánh mỳ, khoai, sắn.",
-      "Bơ, lạc, dầu dừa, cá hồi.",
-      "Sữa, hoa quả, rau xanh, cà rốt."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 15,
-    question: "Ca-lo và ki-lô-ca-lo là đơn vị dùng để làm gì?",
-    options: [
-      "Đo độ dài.",
-      "Đo chiều cao.",
-      "Đo năng lượng mà thức ăn cung cấp.",
-      "Đo khối lượng của thức ăn."
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 16,
-    question: "Cây xanh cần những yếu tố nào để sống và phát triển (quang hợp)?",
-    options: [
-      "Ánh sáng, nước và không khí",
-      "Thức ăn và nước uống",
-      "Đất và nhiệt độ cao",
-      "Phân bón và bóng tối"
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 17,
-    question: "Thí nghiệm đặt cây đậu trong phòng tối nhằm chứng minh điều gì?",
-    options: [
-      "Cây cần nước",
-      "Cây cần ánh sáng",
-      "Cây cần chất khoáng",
-      "Cây cần không khí"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 18,
-    question: "Tại sao không nên ăn khoai tây đã mọc mầm?",
-    options: [
-      "Khoai tây mọc mầm không còn ngon.",
-      "Khoai tây đã mọc mầm chứa độc tố.",
-      "Khoai tây mọc mầm mất hết chất dinh dưỡng.",
-      "Khoai tây mọc mầm đã bị nhiễm khuẩn."
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 19,
-    question: "Chuỗi thức ăn nào sau đây mô tả chính xác mối quan hệ giữa khoai tây, chuột và rắn?",
-    options: [
-      "Khoai tây → chuột → rắn.",
-      "Rắn → chuột → khoai tây.",
-      "Khoai tây → rắn → chuột.",
-      "Chuột → rắn → khoai tây."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 20,
-    question: "Khi nuôi cá trong bể kính, nếu cá nổi đầu lên mặt nước thì nguyên nhân là gì?",
-    options: [
-      "Thiếu thức ăn",
-      "Nước thiếu oxi",
-      "Nhiệt độ nước quá lạnh",
-      "Nước quá trong"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 21,
-    question: "Trong quá trình hô hấp, thực vật hấp thụ khí nào?",
-    options: [
-      "Khí các-bô-níc",
-      "Khí ni-tơ",
-      "Khí ô-xi",
-      "Tất cả các khí trên"
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 22,
-    question: "Phát biểu nào sau đây là ĐÚNG về nhu cầu của động vật?",
-    options: [
-      "Động vật cần thức ăn, nước, nhiệt độ và ánh sáng thích hợp.",
-      "Động vật chỉ cần thức ăn để sống.",
-      "Động vật không cần ánh sáng.",
-      "Động vật có thể sống thiếu nước thời gian dài."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 23,
-    question: "Nấm rơm thường có thể sống ở đâu?",
-    options: [
-      "Đất ẩm",
-      "Rơm, rạ mục",
-      "Thức ăn",
-      "Hoa quả"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 24,
-    question: "Trong các thức ăn dưới đây, nhóm chất nào chứa nhiều chất béo?",
-    options: [
-      "Sữa, rau dền, khoai tây, hàu, trứng.",
-      "Cơm, bánh mỳ, khoai, sắn.",
-      "Bơ, lạc, dầu dừa, cá hồi.",
-      "Sữa, hoa quả, rau xanh, cà rốt."
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 25,
-    question: "Vai trò của can-xi đối với cơ thể là gì?",
-    options: [
-      "Giúp săn chắc các cơ.",
-      "Chống táo bón.",
-      "Tăng cường trí nhớ.",
-      "Giúp xương chắc khỏe."
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 26,
-    question: "Nơi sinh vật sống được gọi là gì?",
-    options: [
-      "Môi trường sống",
-      "Hệ sinh thái",
-      "Vùng lãnh thổ",
-      "Khu bảo tồn"
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 27,
-    question: "Để giúp vật nuôi khỏe mạnh, lớn nhanh, chúng ta cần làm gì?",
-    options: [
-      "Nhốt vật nuôi trong chuồng kín khi trời nóng.",
-      "Tự mua thuốc cho vật nuôi uống khi bị bệnh.",
-      "Giữ vệ sinh chuồng trại sạch sẽ và cho ăn uống đầy đủ.",
-      "Hạn chế cho vật nuôi uống nước."
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 28,
-    question: "Tại sao không nên ăn thức ăn có nấm mốc?",
-    options: [
-      "Thức ăn có nấm mốc gây ngộ độc thực phẩm.",
-      "Thức ăn có nấm mốc tăng thêm mùi vị.",
-      "Thức ăn có nấm mốc mất đi sự bắt mắt.",
-      "Tất cả các đáp án trên."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 29,
-    question: "Dế mèn là thức ăn của gà, gà là thức ăn của cáo. Chuỗi thức ăn nào đúng?",
-    options: [
-      "Gà → dế mèn → Cáo.",
-      "Cáo → dế mèn → gà.",
-      "Dế mèn → gà → cáo.",
-      "Cáo → gà → dế mèn."
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 30,
-    question: "Trong quá trình quang hợp, thực vật thải ra khí gì?",
-    options: [
-      "Nước",
-      "Khí các-bô-níc",
-      "Khí ô-xi",
-      "Khí ni-tơ"
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 31,
-    question: "Để cây trồng sống và phát triển tốt, cần chăm sóc như thế nào?",
-    options: [
-      "Làm đất tơi xốp, thoáng khí.",
-      "Tưới nước, bón phân đầy đủ.",
-      "Chống nóng, chống rét cho cây.",
-      "Cả 3 phương án trên đều đúng."
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 32,
-    question: "Phát biểu nào sau đây là ĐÚNG?",
-    options: [
-      "Nhu cầu thức ăn của các loài động vật khác nhau.",
-      "Không thể xác định nhu cầu thức ăn của động vật.",
-      "Tất cả động vật đều ăn cùng một loại thức ăn.",
-      "Động vật không cần thay đổi thức ăn theo độ tuổi."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 33,
-    question: "Nấm mốc có thể sống ở đâu?",
-    options: [
-      "Đất ẩm",
-      "Rơm, rạ mục",
-      "Thức ăn",
-      "Gỗ mục"
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 34,
-    question: "Trong các thức ăn dưới đây, nhóm chất nào chứa nhiều chất khoáng?",
-    options: [
-      "Sữa, rau dền, khoai tây, hàu, trứng.",
-      "Cơm, bánh mỳ, khoai, sắn.",
-      "Bơ, lạc, dầu dừa, cá hồi.",
-      "Sữa, hoa quả, rau xanh, cà rốt."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 35,
-    question: "Vai trò của chất xơ đối với cơ thể là gì?",
-    options: [
-      "Giúp dạ dày co bóp mạnh hơn.",
-      "Cung cấp chất xơ, nhanh no và phòng tránh táo bón.",
-      "Bổ mắt, răng, lợi khỏe mạnh.",
-      "Cung cấp năng lượng."
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 36,
-    question: "Nhóm nào sau đây đều là thực vật?",
-    options: [
-      "Gà, mèo, chó",
-      "Cây lúa, cây ngô, cây đậu",
-      "Nấm rơm, nấm mốc",
-      "Con dê, con hổ"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 37,
-    question: "Động vật nào sau đây chỉ ăn thực vật?",
-    options: [
-      "Con dê",
-      "Chim đại bàng",
-      "Hổ",
-      "Cá sấu"
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 38,
-    question: "Tại sao khi thức ăn bị nhiễm nấm mốc, ta nên bỏ hoàn toàn?",
-    options: [
-      "Nấm mốc tạo ra độc tố lan tỏa trong toàn bộ thực phẩm.",
-      "Có những phần nấm mốc không thể nhìn được bằng mắt thường.",
-      "Phần chưa nhiễm nấm mốc không còn mùi vị ngon.",
-      "Cả a và b đều đúng"
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 39,
-    question: "Sơ đồ chuỗi thức ăn nào sau đây là đúng?",
-    options: [
-      "Lá cây → Châu chấu → Rắn.",
-      "Rắn → Châu chấu → Rắn → Ếch",
-      "Lá cây → Châu chấu → Ếch → Rắn",
-      "Châu chấu → Ếch → Rắn"
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 40,
-    question: "Vì sao phải thay một phần nước định kỳ trong môi trường nuôi thủy sản?",
-    options: [
-      "Để làm sạch bùn dưới đáy ao",
-      "Để duy trì nồng độ oxi và giảm chất độc tích tụ",
-      "Để tăng nhiệt độ nước",
-      "Để tăng tốc độ sinh sản của cá"
-    ],
-    answerIndex: 1
-  },
-  {
-    id: 41,
-    question: "Việc cho vật nuôi ăn giúp ích gì?",
-    options: [
-      "Cung cấp dinh dưỡng cho vật nuôi",
-      "Hạn chế bệnh, giữ gìn và tăng cường sức khỏe",
-      "Giữ ấm cho vật nuôi",
-      "Cung cấp nước cho vật nuôi"
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 42,
-    question: "Phát biểu nào sau đây là ĐÚNG?",
-    options: [
-      "Cây trồng ở nơi thiếu ánh sáng sẽ mọc vươn cao hơn và yếu hơn.",
-      "Chỉ cần tưới nước buổi tối là đủ vì cây không cần nước ban ngày.",
-      "Cây không cần ánh sáng để phát triển.",
-      "Cây mọc trong bóng tối sẽ khỏe mạnh hơn."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 43,
-    question: "Nấm men thường sống ở đâu?",
-    options: [
-      "Trái cây",
-      "Dạ dày",
-      "Da của động vật",
-      "Tất cả các phương án trên"
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 44,
-    question: "Trong các thức ăn dưới đây, nhóm nào chứa nhiều vi-ta-min?",
-    options: [
-      "Sữa, rau dền, khoai tây, hàu, trứng.",
-      "Cơm, bánh mỳ, khoai, sắn.",
-      "Bơ, lạc, dầu dừa, cá hồi.",
-      "Sữa, hoa quả, rau xanh, cà rốt."
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 45,
-    question: "Vai trò của vi-ta-min (A, B1, C,...) đối với cơ thể là gì?",
-    options: [
-      "Giúp dạ dày co bóp mạnh hơn.",
-      "Cung cấp chất xơ, nhanh no và phòng tránh táo bón.",
-      "Giúp mắt, răng, lợi, da,... khỏe mạnh.",
-      "Cung cấp năng lượng."
-    ],
-    answerIndex: 2
-  },
-  {
-    id: 46,
-    question: "Phát biểu nào sau đây là ĐÚNG?",
-    options: [
-      "Con người, động vật và thực vật đều là sinh vật.",
-      "Sinh vật không cần môi trường sạch để sống.",
-      "Thực vật không phải là sinh vật.",
-      "Chỉ con người mới cần ăn uống để sống."
-    ],
-    answerIndex: 0
-  },
-  {
-    id: 47,
-    question: "Động vật nào sau đây vừa ăn thực vật vừa ăn động vật?",
-    options: [
-      "Chim đại bàng",
-      "Bò",
-      "Ngựa",
-      "Vịt"
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 48,
-    question: "Tại sao khi bảo quản nên tách riêng rau củ quả và thực phẩm tươi sống?",
-    options: [
-      "Vì mỗi nhóm có nhiệt độ và cách thức bảo quản khác nhau.",
-      "Vì thực phẩm có thể bị lẫn mùi vị.",
-      "Vì thịt, cá có thể lan vi khuẩn sang rau củ, quả.",
-      "Cả 3 phương án trên đều đúng."
-    ],
-    answerIndex: 3
-  },
-  {
-    id: 49,
-    question: "Chuỗi thức ăn nào sau đây thể hiện đúng mối quan hệ giữa bắp cải, chim và sâu?",
-    options: [
-      "Bắp cải → chim → sâu",
-      "Bắp cải → sâu → chim",
-      "Sâu → bắp cải → chim",
-      "Chim → sâu → bắp cải"
-    ],
-    answerIndex: 1
-  }
+export const mathQuestions: Question[] = [
+  { id: 1, question: "Kết quả của phép tính 2/9 + 1/3 là:", options: ["5/9", "3/9", "1/3", "3/3"], answerIndex: 0 },
+  { id: 2, question: "Phép tính 1/3 x 7/4 có kết quả là:", options: ["7/12", "8/12", "7/7", "1/4"], answerIndex: 0 },
+  { id: 3, question: "Phép tính 6/5 : 3 có kết quả là:", options: ["2/5", "18/5", "6/15", "2/15"], answerIndex: 0 },
+  { id: 4, question: "Rô-bốt ghi chép số sách các bạn đọc: 3, 5, 10, 8, 2. Vậy số sách Nhung đã đọc là:", options: ["8 quyển", "5 quyển", "10 quyển", "3 quyển"], answerIndex: 2 },
+  { id: 5, question: "Mét vuông được kí hiệu là:", options: ["dm2", "m2", "cm2", "mm2"], answerIndex: 1 },
+  { id: 6, question: "Mi-li-mét vuông được kí hiệu là:", options: ["m2", "dm2", "cm2", "mm2"], answerIndex: 3 },
+  { id: 7, question: "Hình thoi có đặc điểm nào sau đây?", options: ["Hai cặp cạnh đối diện song song", "Hai cặp cạnh đối diện song song và bốn cạnh bằng nhau", "Bốn cạnh bằng nhau", "Hai cặp cạnh đối diện vuông góc"], answerIndex: 1 },
+  { id: 8, question: "Kết quả của biểu thức 1/2 + 5/32 + 3/8 là:", options: ["33/32", "30/32", "31/32", "32/32"], answerIndex: 0 },
+  { id: 9, question: "Kết quả của biểu thức 34/35 - 1/7 - 3/7 sau khi rút gọn là:", options: ["2/5", "3/5", "4/5", "1/5"], answerIndex: 0 },
+  { id: 10, question: "2002 cm2 ... 20 dm2 20 cm2. Dấu thích hợp điền vào chỗ chấm là:", options: ["Không so sánh được", "=", "<", ">"], answerIndex: 2 },
+  { id: 11, question: "Hình dưới đây có bao nhiêu hình bình hành? (Xem hình 10 trang 1)", options: ["10", "8", "9", "7"], answerIndex: 2 },
+  { id: 12, question: "Tổng của 3/4 và 5/16 là:", options: ["5/16", "15/16", "17/16", "8/16"], answerIndex: 2 },
+  { id: 13, question: "Kết quả của phép tính 5/2 x 1/3 là:", options: ["5/6", "6/5", "5/5", "1/6"], answerIndex: 0 },
+  { id: 14, question: "Kết quả của phép tính 5/4 : 4 là:", options: ["5/16", "20/4", "5/1", "1/16"], answerIndex: 0 },
+  { id: 15, question: "Rô-bốt ghi chép số sách: 3, 5, 10, 8, 2. Bạn nào đọc ít sách nhất?", options: ["Nhung", "Dũng", "Nam", "Hà"], answerIndex: 1 },
+  { id: 16, question: "1 cm2 = ... mm2. Số thích hợp điền vào chỗ chấm là:", options: ["1000", "100", "10", "1"], answerIndex: 1 },
+  { id: 17, question: "890 m2 được đọc là:", options: ["Tám chín mươi mét vuông", "Tám trăm chín mươi mét vuông", "Tám trăm chín mươi mét", "Tám chín mươi mét"], answerIndex: 1 },
+  { id: 18, question: "Một lớp có 42 học sinh, trong đó 5/6 là học sinh nữ. Vậy lớp đó có bao nhiêu học sinh nam?", options: ["7 học sinh nam", "30 học sinh nam", "25 học sinh nam", "40 học sinh nam"], answerIndex: 0 },
+  { id: 19, question: "7 m2 4 dm2 = ... dm2. Số thích hợp điền vào chỗ chấm là:", options: ["740", "704", "7400", "7004"], answerIndex: 1 },
+  { id: 20, question: "Cho hình bình hành ABCD có AB = 2cm, AD = 3cm. Tổng độ dài tất cả các cạnh là:", options: ["5 cm", "6 cm", "10 cm", "12 cm"], answerIndex: 2 },
+  { id: 21, question: "Chọn phép tính đúng:", options: ["1/6 x 1/8 = 1/14", "1/2 x 1/6 = 1/12", "1/5 x 5/10 = 1/10", "1/36 x 1/6 = 1/6"], answerIndex: 1 },
+  { id: 22, question: "Kết quả của phép tính 5/4 + 3/32 là:", options: ["43/32", "8/36", "15/32", "10/32"], answerIndex: 0 },
+  { id: 23, question: "Lan ghi lại cân nặng các con vật: 5kg, 1kg, 70kg, 2kg, 11kg. Dãy số liệu thống kê cân nặng là:", options: ["11kg, 5kg, 1kg, 2kg, 70kg", "5kg, 1kg, 70kg, 2kg, 11kg", "1kg, 70kg, 2kg, 11kg, 5kg", "1kg, 5kg, 1kg, 2kg, 70kg"], answerIndex: 1 },
+  { id: 24, question: "Ba mươi hai nghìn chín trăm sáu mươi lăm đề-xi-mét vuông viết là:", options: ["32 965 dm2", "32 695 dm2", "32 965 dm", "32 569 dm2"], answerIndex: 0 },
+  { id: 25, question: "78 mm2 được đọc là:", options: ["Bảy mươi tám mét", "Bảy mươi tám mét vuông", "Bảy mươi tám mi-li-mét", "Bảy mươi tám mi-li-mét vuông"], answerIndex: 3 },
+  { id: 26, question: "Phép tính 2/3 + 10/6 có kết quả là:", options: ["14/6", "12/9", "7/3", "12/6"], answerIndex: 2 },
+  { id: 27, question: "Phép tính 3/19 : 3 là:", options: ["1/19", "9/19", "3/57", "1/3"], answerIndex: 0 },
+  { id: 28, question: "Hiệu số thứ tư và số thứ nhất trong dãy 50, 12, 100, 200, 250 là:", options: ["150", "100", "200", "120"], answerIndex: 0 },
+  { id: 29, question: "75 dm2 10 cm2 ... 7510 cm2. Dấu thích hợp là:", options: ["Không so sánh được", ">", "<", "="], answerIndex: 3 },
+  { id: 30, question: "Hình thoi và hình chữ nhật có điểm chung nào?", options: ["Có thêm một góc ở đỉnh bằng 90 độ", "Hai đường chéo không cắt nhau", "Bốn cạnh bằng nhau", "Có hai cặp cạnh đối diện song song"], answerIndex: 3 },
+  { id: 31, question: "Kết quả của phép tính 5 + 2/9 là:", options: ["49/7", "47/8", "47/9", "48/9"], answerIndex: 2 },
+  { id: 32, question: "Kết quả của phép tính 4/5 x 6/7 là:", options: ["24/35", "10/12", "24/12", "10/35"], answerIndex: 0 },
+  { id: 33, question: "Hồng ghi lại cân nặng: chó 15kg, gà 5kg, lợn 65kg, mèo 3kg. Con vật nhẹ nhất là:", options: ["Lợn", "Chó", "Mèo", "Gà"], answerIndex: 2 },
+  { id: 34, question: "Phát biểu nào sau đây đúng về đơn vị diện tích?", options: ["Hai đơn vị đo diện tích liền nhau gấp nhau 10 lần", "Hai đơn vị đo diện tích liền nhau gấp nhau 100 lần", "Hai đơn vị đo diện tích liền nhau kém nhau 10 lần", "Hai đơn vị đo diện tích liền nhau kém nhau 1000 lần"], answerIndex: 1 },
+  { id: 35, question: "1 dm2 = ... mm2. Số thích hợp là:", options: ["110", "101", "10 000", "1000"], answerIndex: 2 },
+  { id: 36, question: "Một ô tô giờ đầu đi được 6/15 quãng đường, giờ thứ hai đi được 2/5 quãng đường. Cả hai giờ đi được:", options: ["12/15 quãng đường", "12/5 quãng đường", "8/15 quãng đường", "4/5 quãng đường"], answerIndex: 3 },
+  { id: 37, question: "Rô-bốt sử dụng 1/11 chai nước giặt để giặt một bộ quần áo. Để giặt 6 bộ cần:", options: ["12/15 chai", "12/11 chai", "6/11 chai", "5/11 chai"], answerIndex: 2 },
+  { id: 38, question: "Bạn Việt tập thể dục 30 phút, bạn Quỳnh tập 15 phút. Việt tập nhiều hơn Quỳnh bao nhiêu phút?", options: ["10 phút", "15 phút", "5 phút", "20 phút"], answerIndex: 1 },
+  { id: 39, question: "1 dm2 2 cm2 = ... cm2. Số thích hợp là:", options: ["1020", "102", "1200", "1202"], answerIndex: 1 },
+  { id: 40, question: "Kết quả của phép tính 8/9 - 1/3 là:", options: ["5/9", "3/9", "1/3", "10/9"], answerIndex: 0 },
+  { id: 41, question: "3/5 của 35 là:", options: ["21", "15", "25", "20"], answerIndex: 0 },
+  { id: 42, question: "4/7 của 49 là:", options: ["35", "28", "21", "14"], answerIndex: 1 },
+  { id: 43, question: "Trong một trận đấu bóng rổ, Hùng ghi được 13 điểm, Dũng ghi được 8 điểm. Tổng điểm hai bạn là:", options: ["21 điểm", "20 điểm", "22 điểm", "19 điểm"], answerIndex: 0 },
+  { id: 44, question: "75 dm2 10 cm2 = ... cm2. Số thích hợp là:", options: ["751 cm2", "710 cm2", "750 cm2", "7510 cm2"], answerIndex: 3 },
+  { id: 45, question: "Cho 24 cm2 < ... mm2. Số thích hợp điền vào chỗ trống là:", options: ["2400", "240", "24 000", "24"], answerIndex: 2 },
+  { id: 46, question: "Để thực hiện kế hoạch nhỏ, ngày thứ nhất Kim thu được 468/2 kg giấy vụn, ngày thứ hai thu được 679/4 kg. Cả hai ngày thu được:", options: ["1615/4 kg", "1500/4 kg", "1600/4 kg", "1700/4 kg"], answerIndex: 0 },
+  { id: 47, question: "Việt mua 8 quyển vở. Biết mỗi quyển vở hết 1/32 số tiền của Việt. Vậy Việt mua vở hết:", options: ["1/4 số tiền", "1/8 số tiền", "1/2 số tiền", "1/16 số tiền"], answerIndex: 0 },
+  { id: 48, question: "Một sân vận động hình chữ nhật có chiều dài 150m và chiều rộng 80m. Diện tích sân vận động là:", options: ["12 000 m2", "15 000 m2", "17 000 m2", "18 000 m2"], answerIndex: 0 },
+  { id: 49, question: "Bạn Hoa làm một khung ảnh hình bình hành PQRS với PQ = 18cm và PS = 24cm. Độ dài viền khung ảnh là:", options: ["42 cm", "84 cm", "40 cm", "80 cm"], answerIndex: 1 },
+  { id: 50, question: "Tính và chọn kết quả đúng: 8/15 - 1/3 =", options: ["2/5", "1/5", "6/5", "3/15"], answerIndex: 3 },
+  { id: 51, question: "Kết quả của phép tính 15/34 x 34 là:", options: ["15", "34", "1", "510"], answerIndex: 0 },
+  { id: 52, question: "5/6 của 42 là:", options: ["35", "30", "25", "40"], answerIndex: 0 },
+  { id: 53, question: "Hai nghìn bảy trăm tám mươi đề-xi-mét vuông viết là:", options: ["2780", "2870", "2708", "2980"], answerIndex: 0 },
+  { id: 54, question: "Cho 2 cm2 > ... mm2. Số thích hợp điền vào chỗ trống là:", options: ["200", "20", "20 000", "2000"], answerIndex: 1 },
+  { id: 55, question: "Kết quả của biểu thức 8/9 x (2/5 + 3/5) là:", options: ["2/45", "8/9", "10/45", "16/45"], answerIndex: 1 },
+  { id: 56, question: "Biểu thức 1/2 x (8/5 + 2/5) có giá trị là:", options: ["10/10", "1", "10/5", "5/10"], answerIndex: 1 },
+  { id: 57, question: "Gieo xúc xắc 20 lần, mặt 1 chấm xuất hiện 3 lần, mặt 2 chấm 4 lần. Số lần xuất hiện mặt lẻ là:", options: ["10 lần", "8 lần", "12 lần", "9 lần"], answerIndex: 0 },
+  { id: 58, question: "Tìm số chưa biết: 5 m2 x 15 = ... dm2", options: ["75", "7 500", "750", "75 000"], answerIndex: 1 },
+  { id: 59, question: "Kết quả của phép tính 17/24 - 3/8 là:", options: ["8/24", "1/3", "11/24", "14/24"], answerIndex: 1 },
+  { id: 60, question: "Hiệu của 3/4 và 5/16 là:", options: ["7/16", "1/16", "11/16", "2/16"], answerIndex: 0 },
+  { id: 61, question: "Phép tính có kết quả bằng 15/7 là:", options: ["9/11 x 2/1", "9/1 x 12/11", "20/4 x 3/7", "1/11 x 3/7"], answerIndex: 2 },
+  { id: 62, question: "1 dm2 = 100 cm2 đúng hay sai?", options: ["Sai", "Đúng", "Không thể kết luận", "Không có đơn vị cm2"], answerIndex: 1 },
+  { id: 63, question: "Ba mươi lăm nghìn chín trăm sáu mươi lăm mi-li-mét vuông viết là:", options: ["35 960 mm2", "32 690 mm2", "35 965 mm2", "32 565 mm2"], answerIndex: 2 },
+  { id: 64, question: "Hiện nay ông 72 tuổi, tuổi bố bằng 5/9 tuổi ông. Vậy hiện nay bố bao nhiêu tuổi?", options: ["45", "40", "32", "27"], answerIndex: 1 },
+  { id: 65, question: "Gieo xúc xắc 20 lần, mặt 2 chấm xuất hiện 4 lần, mặt 4 chấm 3 lần, mặt 6 chấm 2 lần. Số lần xuất hiện mặt chẵn là:", options: ["10 lần", "11 lần", "12 lần", "9 lần"], answerIndex: 3 },
+  { id: 66, question: "Tính giá trị biểu thức: 10 m2 + 20 m2 + 1000 dm2 =", options: ["500 m2", "1000 m2", "4000 dm2", "100 m2"], answerIndex: 2 },
+  { id: 67, question: "Kết quả của phép tính 5/4 - 3/32 là:", options: ["1/4", "8/16", "17/16", "37/32"], answerIndex: 3 },
+  { id: 68, question: "Kết quả của phép tính 3/19 x 3 là:", options: ["9/19", "1/19", "3/32", "1/32"], answerIndex: 0 },
+  { id: 69, question: "Tích của 1/32 và 4/3 là:", options: ["1/24", "4/32", "1/3", "5/35"], answerIndex: 0 },
+  { id: 70, question: "Điền vào chỗ chấm: 6 dm2 3 cm2 ... 603 cm2", options: [">", "<", "=", "Không đủ dữ kiện"], answerIndex: 2 },
+  { id: 71, question: "Ba nghìn sáu trăm bảy mươi mi-li-mét vuông viết là:", options: ["3607 mm2", "3760 mm2", "3670 mm2", "3076 mm2"], answerIndex: 2 },
+  { id: 72, question: "Kết quả biểu thức 9/10 - (2/5 + 1/10) + 9/20 là:", options: ["49/20", "1/2", "5/20", "17/20"], answerIndex: 3 },
+  { id: 73, question: "Kết quả biểu thức 1/15 : 5/4 x 4 là:", options: ["1/15", "16/75", "4/75", "1/75"], answerIndex: 1 },
+  { id: 74, question: "Tổng lượng mưa từ tháng 5 đến tháng 9 của xã là: 65, 74, 100, 70, 80 (mm). Tổng là:", options: ["389 mm", "398 mm", "399 mm", "388 mm"], answerIndex: 0 },
+  { id: 75, question: "Một hình chữ nhật có chiều dài gấp 10 lần chiều rộng, biết chiều dài bằng 30m. Diện tích là:", options: ["300 m2", "3 m2", "90 m2", "900 m2"], answerIndex: 2 },
+  { id: 76, question: "7/18 của 90 là:", options: ["33", "34", "35", "40"], answerIndex: 2 },
+  { id: 77, question: "Kết quả của phép tính 8/9 - 2/3 là:", options: ["2/9", "6/9", "2/3", "7/16"], answerIndex: 0 },
+  { id: 78, question: "Hiệu của 3/4 và 5/16 là:", options: ["7/16", "1/16", "11/16", "2/16"], answerIndex: 0 },
+  { id: 79, question: "Tám mươi chín nghìn hai trăm linh sáu mét vuông viết là:", options: ["89 026 m2", "89 006 m2", "89 206 m2", "89 266 m2"], answerIndex: 2 },
+  { id: 80, question: "100 cm2 = ... dm2. Số thích hợp là:", options: ["100", "10", "1", "1000"], answerIndex: 2 },
+  { id: 81, question: "Một bức tranh hình chữ nhật có diện tích 29/2 dm2 và chiều rộng 3 dm. Chiều dài là:", options: ["29/6 dm", "29/3 dm", "29/2 dm", "29/5 dm"], answerIndex: 0 },
+  { id: 82, question: "Kết quả của phép tính 2/4 : 2/3 x 4/5 là:", options: ["3/5", "4/5", "1/5", "2/5"], answerIndex: 0 },
+  { id: 83, question: "Biểu đồ đọc sách: An đọc 40 quyển, Bình đọc 35 quyển. An đọc nhiều hơn Bình bao nhiêu?", options: ["5 quyển", "10 quyển", "15 quyển", "20 quyển"], answerIndex: 0 },
+  { id: 84, question: "20 mm2 x 20 > ... Phép tính thích hợp là:", options: ["3 cm2 x 2", "10 cm2 : 2", "6 cm2 x 1", "1 cm2 x 2"], answerIndex: 3 },
+  { id: 85, question: "Kết quả của phép tính 8 - 3/7 là:", options: ["53/7", "54/5", "54/7", "53/4"], answerIndex: 2 },
+  { id: 86, question: "Kết quả của phép tính 4 : 5/24 là:", options: ["5/96", "15/24", "96/5", "14/3"], answerIndex: 2 },
+  { id: 87, question: "Kết quả của phép tính 2 : 3/14 là:", options: ["3/28", "28/3", "1/14", "2/14"], answerIndex: 1 },
+  { id: 88, question: "990 m2 = ... dm2. Số thích hợp là:", options: ["990", "9 900", "90 900", "99 000"], answerIndex: 3 },
+  { id: 89, question: "9900 cm2 = ... dm2. Số thích hợp là:", options: ["99", "9", "909", "900"], answerIndex: 0 },
+  { id: 90, question: "Kết quả của biểu thức 29/8 - 1/2 - 5/4 là:", options: ["10/8", "18/8", "19/8", "15/8"], answerIndex: 3 },
+  { id: 91, question: "Trung bình mỗi bạn đọc được bao nhiêu quyển sách (Bình 35, An 40, Minh 25, Hòa 20)?", options: ["120 quyển", "30 quyển", "40 quyển", "20 quyển"], answerIndex: 1 },
+  { id: 92, question: "Trong các số đo sau, số đo lớn nhất là:", options: ["3 269 dm2", "2 586 dm2", "30 m2 68 dm2", "35 m2 67 dm2"], answerIndex: 3 },
+  { id: 93, question: "Kết quả của phép tính 3/5 + 1/2 là:", options: ["4/7", "11/10", "4/10", "3/10"], answerIndex: 1 },
+  { id: 94, question: "Kết quả của phép tính 7/8 - 1/4 là:", options: ["6/4", "5/8", "6/8", "3/8"], answerIndex: 1 },
+  { id: 95, question: "Một hình vuông có cạnh 5cm. Diện tích là:", options: ["20 cm2", "25 cm2", "10 cm2", "15 cm2"], answerIndex: 1 },
+  { id: 96, question: "Số thích hợp điền vào chỗ trống: 1/2 m2 = ... dm2", options: ["50", "5", "500", "5000"], answerIndex: 0 },
+  { id: 97, question: "Kết quả của phép tính 12 x 3/4 là:", options: ["9", "12", "15", "18"], answerIndex: 0 },
+  { id: 98, question: "Phân số nào lớn nhất?", options: ["1/2", "1/3", "1/4", "1/5"], answerIndex: 0 },
+  { id: 99, question: "Kết quả của phép tính 1/2 + 1/4 + 1/8 là:", options: ["3/8", "7/8", "1/14", "5/8"], answerIndex: 1 },
+  { id: 100, question: "Một hình chữ nhật có diện tích 24cm2, chiều dài 6cm. Chiều rộng là:", options: ["4 cm", "3 cm", "2 cm", "5 cm"], answerIndex: 0 }
+];
+
+export const scienceQuestions: Question[] = [
+  { id: 1, question: "Các yếu tố cần cho sự sống và phát triển của thực vật là:", options: ["Ánh sáng, không khí, nước, chất khoáng và cây giống.", "Ánh sáng, không khí, nước, chất khoáng và nhiệt độ", "Ánh sáng, không khí, nước, chất khoáng và người chăm sóc.", "Ánh sáng, không khí, nước, chất khoáng"], answerIndex: 1 },
+  { id: 2, question: "Động vật không có khả năng tự tổng hợp chất dinh dưỡng đúng hay sai?", options: ["Đúng", "Sai", "Chưa thể kết luận", "Tùy loài"], answerIndex: 0 },
+  { id: 3, question: "Tuỳ theo độ tuổi, trạng thái sinh lí và môi trường sống mà nấm có:", options: ["Hình dạng, kích thước, màu sắc cố định", "Hình dạng, kích thước cố định", "Kích thước, màu sắc không cố định", "Hình dạng, kích thước, màu sắc không cố định"], answerIndex: 3 },
+  { id: 4, question: "Trong các thức ăn dưới đây, nhóm nào chứa nhiều chất bột đường?", options: ["Cá, trứng, sữa, thịt, hải sản, đậu nành.", "Cơm, bánh mỳ, khoai, sắn.", "Bơ, lạc, dầu dừa, cá hồi.", "Sữa, hoa quả, rau xanh, cà rốt."], answerIndex: 1 },
+  { id: 5, question: "Đâu KHÔNG phải vai trò của nước đối với cơ thể?", options: ["Giúp tiêu hóa thức ăn, hòa tan chất dinh dưỡng và bài tiết chất thải.", "Giúp làm mát cơ thể khi thoát mồ hôi.", "Giúp vận chuyển các chất dinh dưỡng đi khắp cơ thể.", "Giúp cơ thể có đầy đủ năng lượng sống."], answerIndex: 3 },
+  { id: 6, question: "Mỗi sinh vật trong chuỗi thức ăn được gọi là gì?", options: ["Một mắt xích", "Một nguồn thức ăn", "Một vật chủ", "Một mắt xích quan trọng"], answerIndex: 0 },
+  { id: 7, question: "Thực vật dùng năng lượng ánh sáng mặt trời để làm gì?", options: ["Trao đổi chất", "Tổng hợp các chất hữu cơ từ các chất vô cơ", "Hô hấp", "Quang hợp"], answerIndex: 1 },
+  { id: 8, question: "Tại sao không nên ăn đồ ăn đã hết hạn sử dụng?", options: ["Vì có thể bị nhiễm khuẩn, nấm mốc gây hại cho sức khỏe.", "Vì đồ ăn sẽ không còn ngon nữa.", "Vì đồ ăn đã mất hết giá trị dinh dưỡng.", "Cả 3 phương án trên đều đúng."], answerIndex: 0 },
+  { id: 9, question: "Đâu không thể là mắt xích liền sau của con gà?", options: ["Con vịt", "Con hổ", "Con báo", "Con sư tử"], answerIndex: 0 },
+  { id: 10, question: "Vì sao chim di cư vào mùa đông?", options: ["Vì muốn khám phá các vùng đất mới", "Vì nhiệt độ thấp và thiếu thức ăn ở nơi cư trú cũ", "Vì muốn tránh những loài săn mồi", "Vì ánh sáng ban ngày ngắn hơn"], answerIndex: 1 },
+  { id: 11, question: "Cây sẽ thế nào nếu không được tưới nước?", options: ["Cây sẽ di chuyển đến nơi có nước", "Cây sẽ phát triển tốt và mạnh khỏe", "Cây sẽ héo và cuối cùng sẽ chết", "Cây vẫn bình thường"], answerIndex: 2 },
+  { id: 12, question: "Động vật lấy thức ăn từ cả thực vật và động vật đúng hay sai?", options: ["Sai", "Đúng", "Chưa rõ", "Tùy môi trường"], answerIndex: 1 },
+  { id: 13, question: "Nấm có thể sống ở đâu?", options: ["Đất ẩm", "Rơm rạ mục", "Thức ăn", "Cả a,b,c đều đúng"], answerIndex: 3 },
+  { id: 14, question: "Trong các thức ăn dưới đây, nhóm chất nào chứa nhiều chất đạm?", options: ["Cá, trứng, sữa, thịt, hải sản, đậu nành.", "Cơm, bánh mỳ, khoai, sắn.", "Bơ, lạc, dầu dừa, cá hồi.", "Sữa, hoa quả, rau xanh, cà rốt."], answerIndex: 0 },
+  { id: 15, question: "Ca-lo và ki-lô-ca-lo là đơn vị dùng để làm gì?", options: ["Đo độ dài.", "Đo chiều cao.", "Đo năng lượng mà thức ăn cung cấp.", "Đo khối lượng của thức ăn."], answerIndex: 2 },
+  { id: 16, question: "Cây xanh cần ánh sáng, nước và không khí để làm gì?", options: ["Quang hợp", "Hô hấp", "Thoát hơi nước", "Hút chất khoáng"], answerIndex: 0 },
+  { id: 17, question: "Thí nghiệm đặt cây đậu trong phòng tối nhằm chứng minh điều gì?", options: ["Cây cần nước", "Cây cần ánh sáng", "Cây cần chất khoáng", "Cây cần không khí"], answerIndex: 1 },
+  { id: 18, question: "Tại sao không nên ăn khoai tây đã mọc mầm?", options: ["Khoai tây mọc mầm không còn ngon.", "Khoai tây đã mọc mầm chứa độc tố.", "Khoai tây mọc mầm mất hết chất dinh dưỡng.", "Khoai tây mọc mầm đã bị nhiễm khuẩn."], answerIndex: 3 },
+  { id: 19, question: "Chuỗi thức ăn nào sau đây mô tả chính xác mối quan hệ giữa khoai tây, chuột và rắn?", options: ["Khoai tây → chuột → rắn.", "Rắn → chuột → khoai tây.", "Khoai tây → rắn → chuột.", "Chuột → rắn → khoai tây."], answerIndex: 0 },
+  { id: 20, question: "Khi nuôi cá trong bể kính, nếu cá nổi đầu lên mặt nước thì nguyên nhân là gì?", options: ["Thiếu thức ăn", "Nước thiếu oxi", "Nhiệt độ nước quá lạnh", "Nước quá trong"], answerIndex: 1 },
+  { id: 21, question: "Trong quá trình hô hấp, thực vật hấp thụ khí nào?", options: ["Khí các-bô-níc", "Khí ni-tơ", "Khí ô-xi", "Tất cả các khí trên"], answerIndex: 2 },
+  { id: 22, question: "Động vật cần nhiệt độ và ánh sáng thích hợp để sống đúng hay sai?", options: ["Sai", "Đúng", "Tùy loài", "Không cần thiết"], answerIndex: 1 },
+  { id: 23, question: "Nấm rơm thường có thể sống ở đâu?", options: ["Đất ẩm", "Rơm, rạ mục", "Thức ăn", "Hoa quả"], answerIndex: 0 },
+  { id: 24, question: "Trong các thức ăn dưới đây, nhóm chất nào chứa nhiều chất béo?", options: ["Sữa, rau dền, khoai tây, hàu, trứng.", "Cơm, bánh mỳ, khoai, sắn.", "Bơ, lạc, dầu dừa, cá hồi.", "Sữa, hoa quả, rau xanh, cà rốt."], answerIndex: 2 },
+  { id: 25, question: "Vai trò của can-xi đối với cơ thể là gì?", options: ["Giúp săn chắc các cơ.", "Chống táo bón.", "Tăng cường trí nhớ.", "Giúp xương chắc khỏe."], answerIndex: 3 },
+  { id: 26, question: "Nơi sinh vật sống được gọi là gì?", options: ["Môi trường sống", "Hệ sinh thái", "Vùng lãnh thổ", "Khu bảo tồn"], answerIndex: 0 },
+  { id: 27, question: "Để giúp vật nuôi khỏe mạnh, lớn nhanh, chúng ta cần làm gì?", options: ["Nhốt vật nuôi trong chuồng kín khi trời nóng.", "Tự mua thuốc cho vật nuôi uống khi bị bệnh.", "Giữ vệ sinh chuồng trại sạch sẽ và cho ăn uống đầy đủ.", "Hạn chế cho vật nuôi uống nước."], answerIndex: 2 },
+  { id: 28, question: "Tại sao không nên ăn thức ăn có nấm mốc?", options: ["Thức ăn có nấm mốc gây ngộ độc thực phẩm.", "Thức ăn có nấm mốc tăng thêm mùi vị.", "Thức ăn có nấm mốc mất đi sự bắt mắt.", "Tất cả các đáp án trên."], answerIndex: 0 },
+  { id: 29, question: "Dế mèn là thức ăn của gà, gà là thức ăn của cáo. Chuỗi thức ăn nào đúng?", options: ["Gà → dế mèn → Cáo.", "Cáo → dế mèn → gà.", "Dế mèn → gà → cáo.", "Cáo → gà → dế mèn."], answerIndex: 2 },
+  { id: 30, question: "Trong quá trình quang hợp, thực vật thải ra khí gì?", options: ["Nước", "Khí các-bô-níc", "Khí ô-xi", "Khí ni-tơ"], answerIndex: 2 },
+  { id: 31, question: "Để cây trồng sống và phát triển tốt, cần chăm sóc như thế nào?", options: ["Làm đất tơi xốp, thoáng khí.", "Tưới nước, bón phân đầy đủ.", "Chống nóng, chống rét cho cây.", "Cả 3 phương án trên đều đúng."], answerIndex: 3 },
+  { id: 32, question: "Phát biểu nào sau đây là ĐÚNG?", options: ["Nhu cầu thức ăn của các loài động vật khác nhau.", "Không thể xác định nhu cầu thức ăn của động vật.", "Tất cả động vật đều ăn cùng một loại thức ăn.", "Động vật không cần thay đổi thức ăn theo độ tuổi."], answerIndex: 0 },
+  { id: 33, question: "Nấm mốc có thể sống ở đâu?", options: ["Đất ẩm", "Rơm, rạ mục", "Thức ăn", "Gỗ mục"], answerIndex: 2 },
+  { id: 34, question: "Trong các thức ăn dưới đây, nhóm chất nào chứa nhiều chất khoáng?", options: ["Sữa, rau dền, khoai tây, hàu, trứng.", "Cơm, bánh mỳ, khoai, sắn.", "Bơ, lạc, dầu dừa, cá hồi.", "Sữa, hoa quả, rau xanh, cà rốt."], answerIndex: 0 },
+  { id: 35, question: "Vai trò của chất xơ đối với cơ thể là gì?", options: ["Giúp dạ dày co bóp mạnh hơn.", "Cung cấp chất xơ, nhanh no và phòng tránh táo bón.", "Bổ mắt, răng, lợi khỏe mạnh.", "Cung cấp năng lượng."], answerIndex: 1 },
+  { id: 36, question: "Nhóm nào sau đây đều là thực vật?", options: ["Gà, mèo, chó", "Cây lúa, cây ngô, cây đậu", "Nấm rơm, nấm mốc", "Con dê, con hổ"], answerIndex: 1 },
+  { id: 37, question: "Động vật nào sau đây chỉ ăn thực vật?", options: ["Con dê", "Chim đại bàng", "Hổ", "Cá sấu"], answerIndex: 0 },
+  { id: 38, question: "Tại sao khi thức ăn bị nhiễm nấm mốc, ta nên bỏ hoàn toàn?", options: ["Nấm mốc tạo ra độc tố lan tỏa trong toàn bộ thực phẩm.", "Có những phần nấm mốc không thể nhìn được bằng mắt thường.", "Phần chưa nhiễm nấm mốc không còn mùi vị ngon.", "Cả a và b đều đúng"], answerIndex: 3 },
+  { id: 39, question: "Sơ đồ chuỗi thức ăn nào sau đây là đúng?", options: ["Lá cây → Châu chấu → Rắn.", "Rắn → Châu chấu → Rắn → Ếch", "Lá cây → Châu chấu → Ếch → Rắn", "Châu chấu → Ếch → Rắn"], answerIndex: 2 },
+  { id: 40, question: "Vì sao phải thay một phần nước định kỳ trong môi trường nuôi thủy sản?", options: ["Để làm sạch bùn dưới đáy ao", "Để duy trì nồng độ oxi và giảm chất độc tích tụ", "Để tăng nhiệt độ nước", "Để tăng tốc độ sinh sản của cá"], answerIndex: 1 },
+  { id: 41, question: "Việc cho vật nuôi ăn giúp ích gì?", options: ["Cung cấp dinh dưỡng cho vật nuôi", "Hạn chế bệnh, giữ gìn và tăng cường sức khỏe", "Giữ ấm cho vật nuôi", "Cung cấp nước cho vật nuôi"], answerIndex: 0 },
+  { id: 42, question: "Phát biểu nào sau đây là ĐÚNG?", options: ["Cây trồng ở nơi thiếu ánh sáng sẽ mọc vươn cao hơn và yếu hơn.", "Chỉ cần tưới nước buổi tối là đủ vì cây không cần nước ban ngày.", "Cây không cần ánh sáng để phát triển.", "Cây mọc trong bóng tối sẽ khỏe mạnh hơn."], answerIndex: 0 },
+  { id: 43, question: "Nấm men thường sống ở đâu?", options: ["Trái cây", "Dạ dày", "Da của động vật", "Tất cả các phương án trên"], answerIndex: 3 },
+  { id: 44, question: "Trong các thức ăn dưới đây, nhóm nào chứa nhiều vi-ta-min?", options: ["Sữa, rau dền, khoai tây, hàu, trứng.", "Cơm, bánh mỳ, khoai, sắn.", "Bơ, lạc, dầu dừa, cá hồi.", "Sữa, hoa quả, rau xanh, cà rốt."], answerIndex: 3 },
+  { id: 45, question: "Vai trò của vi-ta-min (A, B1, C,...) đối với cơ thể là gì?", options: ["Giúp dạ dày co bóp mạnh hơn.", "Cung cấp chất xơ, nhanh no và phòng tránh táo bón.", "Giúp mắt, răng, lợi, da,... khỏe mạnh.", "Cung cấp năng lượng."], answerIndex: 2 },
+  { id: 46, question: "Phát biểu nào sau đây là ĐÚNG?", options: ["Con người, động vật và thực vật đều là sinh vật.", "Sinh vật không cần môi trường sạch để sống.", "Thực vật không phải là sinh vật.", "Chỉ con người mới cần ăn uống để sống."], answerIndex: 0 },
+  { id: 47, question: "Động vật nào sau đây vừa ăn thực vật vừa ăn động vật?", options: ["Chim đại bàng", "Bò", "Ngựa", "Vịt"], answerIndex: 3 },
+  { id: 48, question: "Tại sao khi bảo quản nên tách riêng rau củ quả và thực phẩm tươi sống?", options: ["Vì mỗi nhóm có nhiệt độ và cách thức bảo quản khác nhau.", "Vì thực phẩm có thể bị lẫn mùi vị.", "Vì thịt, cá có thể lan vi khuẩn sang rau củ, quả.", "Cả 3 phương án trên đều đúng."], answerIndex: 3 },
+  { id: 49, question: "Chuỗi thức ăn nào sau đây thể hiện đúng mối quan hệ giữa bắp cải, chim và sâu?", options: ["Bắp cải → chim → sâu", "Bắp cải → sâu → chim", "Sâu → bắp cải → chim", "Chim → sâu → bắp cải"], answerIndex: 1 },
+  { id: 50, question: "Vì sao nhiều loài thú sống về đêm?", options: ["Vì ban đêm có nhiều thức ăn hơn", "Vì ban đêm dễ trốn kẻ thù và tránh nóng ban ngày", "Vì ban đêm có nhiều ánh sáng mặt trăng", "Vì ban đêm ít loài khác cạnh tranh"], answerIndex: 1 },
+  { id: 51, question: "Việc vệ sinh chuồng trại cho vật nuôi giúp:", options: ["Cung cấp dinh dưỡng", "Hạn chế bệnh, giữ gìn và tăng cường sức khỏe", "Giữ ấm cho vật nuôi", "Cung cấp nước cho vật nuôi"], answerIndex: 1 },
+  { id: 52, question: "Cho vật nuôi ăn giúp tăng sức khỏe, hạn chế bệnh đúng hay sai?", options: ["Đúng", "Sai", "Chưa rõ", "Không liên quan"], answerIndex: 0 },
+  { id: 53, question: "Nấm ăn là nguồn thực phẩm:", options: ["Có lợi cho sức khỏe con người", "Có hại cho sức khỏe con người", "Không có giá trị dinh dưỡng", "Không được dùng phổ biến"], answerIndex: 0 },
+  { id: 54, question: "Chất bột đường có vai trò:", options: ["Cung cấp năng lượng cho mọi hoạt động của cơ thể", "Cần cho cơ thể hoạt động, phòng tránh bệnh và tham gia vào thành phần cấu tạo cơ thể", "Cấu tạo, xây dựng nên cơ thể và tham gia vào hầu hết các hoạt động sống", "Cần cho các hoạt động sống, giúp cơ thể phòng tránh bệnh"], answerIndex: 0 },
+  { id: 55, question: "Chúng ta cần uống khoảng bao nhiêu lít nước mỗi ngày?", options: ["1 lít", "1,5 lít", "2 lít", "2,5 lít"], answerIndex: 2 },
+  { id: 56, question: "Rác thải vứt bừa bãi sẽ làm môi trường bị ...", options: ["Ô nhiễm", "Sạch sẽ", "Trong lành", "Đẹp hơn"], answerIndex: 0 },
+  { id: 57, question: "Động vật nào sau đây chỉ ăn thực vật?", options: ["Con dê", "Chim đại bàng", "Hổ", "Cá sấu"], answerIndex: 0 },
+  { id: 58, question: "Tại sao không cần thiết phải rửa sạch thức ăn trước khi bảo quản trong tủ lạnh?", options: ["Vì độ ẩm sẽ khiến thực phẩm nhanh hỏng hơn", "Vì nước cũng chứa các loại vi khuẩn", "Vì nước làm trôi mất lớp bảo vệ của thực phẩm", "Vì rửa sẽ làm tăng độc tố trong sản phẩm"], answerIndex: 0 },
+  { id: 59, question: "Đâu không thể là mắt xích liền sau của con sâu?", options: ["Con gà", "Con chim", "Cây cải", "Con ếch"], answerIndex: 2 },
+  { id: 60, question: "Vì sao chim di cư vào mùa đông?", options: ["Vì muốn khám phá vùng đất mới", "Vì nhiệt độ thấp và thiếu thức ăn ở nơi cư trú cũ", "Vì muốn tránh những loài săn mồi", "Vì ánh sáng ban ngày ngắn hơn"], answerIndex: 1 },
+  { id: 61, question: "Việc gia cố, che chắn chuồng trại giúp:", options: ["Cung cấp dinh dưỡng", "Hạn chế bệnh, giữ gìn và tăng cường sức khỏe cho vật nuôi", "Giữ ấm cho vật nuôi", "Cung cấp nước cho vật nuôi"], answerIndex: 2 },
+  { id: 62, question: "Vệ sinh chuồng trại giúp cung cấp dinh dưỡng đúng hay sai?", options: ["Đúng", "Sai", "Chưa rõ", "Tùy loài"], answerIndex: 1 },
+  { id: 63, question: "Nấm mốc phát triển trong môi trường có:", options: ["Nhiệt độ cao, độ ẩm cao", "Nhiệt độ thấp, độ ẩm cao", "Nhiệt độ cao, độ ẩm thấp", "Nhiệt độ thấp, độ ẩm thấp"], answerIndex: 0 },
+  { id: 64, question: "Chất đạm có vai trò:", options: ["Cung cấp năng lượng cho mọi hoạt động của cơ thể", "Cần cho cơ thể hoạt động, phòng tránh bệnh và tham gia vào thành phần cấu tạo cơ thể", "Cấu tạo, xây dựng nên cơ thể và tham gia vào hầu hết các hoạt động sống", "Cần cho các hoạt động sống, giúp cơ thể phòng tránh bệnh"], answerIndex: 2 },
+  { id: 65, question: "Khi chúng ta cảm thấy khát nước tức là:", options: ["Cơ thể đang thiếu nước", "Cơ thể đang thừa nước", "Cơ thể thiếu nước trầm trọng", "Cơ thể thừa quá nhiều nước"], answerIndex: 0 },
+  { id: 66, question: "Trong tự nhiên, sinh vật này có thể là thức ăn của sinh vật ...", options: ["Khác", "Giống", "Cùng loài", "Cùng nhóm"], answerIndex: 0 },
+  { id: 67, question: "Động vật nào sau đây chỉ ăn động vật?", options: ["Con dê", "Chim đại bàng", "Hổ", "Cá sấu"], answerIndex: 1 },
+  { id: 68, question: "Tại sao cần phải ăn phối hợp nhiều loại thức ăn và thường xuyên thay đổi món?", options: ["Vì ăn nhiều một món sẽ chán", "Vì mỗi khoảng thời gian khác nhau, cơ thể cần cung cấp các chất dinh dưỡng khác nhau", "Vì không có một thức ăn nào có thể cung cấp đầy đủ các chất dinh dưỡng cho cơ thể", "Tất cả các đáp án trên"], answerIndex: 2 },
+  { id: 69, question: "Thực vật là mắt xích đầu tiên nên là mắt xích ...?", options: ["Giàu năng lượng nhất", "Ít năng lượng nhất", "Tiêu thụ tất cả các mắt xích đứng sau", "Đứng cuối cùng trong chuỗi thức ăn"], answerIndex: 0 },
+  { id: 70, question: "Khi nuôi cá trong bể kính, nếu cá có biểu hiện chậm chạp và nổi đầu lên mặt nước, nguyên nhân có thể là:", options: ["Thiếu thức ăn", "Nước thiếu oxi", "Nhiệt độ nước quá lạnh", "Nước quá trong"], answerIndex: 1 },
+  { id: 71, question: "Khi đất bị nén chặt hoặc quá khô, rễ cây sẽ khó ..., vì vậy cần xới đất thường xuyên để đất ..., giúp rễ hút nước và chất khoáng tốt hơn.", options: ["Hô hấp, tơi xốp", "Hút nước, tơi xốp", "Phát triển, ẩm ướt", "Hô hấp, ẩm ướt"], answerIndex: 0 },
+  { id: 72, question: "Trong quá trình trao đổi chất với môi trường, động vật lấy vào:", options: ["Thức ăn", "Nước", "Khí ô-xi", "Cả a,b,c đều đúng"], answerIndex: 3 },
+  { id: 73, question: "Tác hại của việc sử dụng các loại thực phẩm bị nhiễm nấm mốc là:", options: ["Gây hại cho gan, thận, gây rối loạn tiêu hóa", "Có thể gây ung thư", "Có thể dẫn đến tử vong", "Tất cả các đáp án trên đều đúng"], answerIndex: 3 },
+  { id: 74, question: "Chất khoáng có vai trò:", options: ["Cung cấp năng lượng cho mọi hoạt động của cơ thể", "Cần cho cơ thể hoạt động, phòng tránh bệnh và tham gia vào thành phần cấu tạo cơ thể", "Cấu tạo, xây dựng nên cơ thể và tham gia vào hầu hết các hoạt động sống", "Cần cho các hoạt động sống, giúp cơ thể phòng tránh bệnh"], answerIndex: 1 },
+  { id: 75, question: "Uống nước đúng cách là:", options: ["Chờ đến lúc thật khát mới uống nước", "Uống càng nhiều nước càng tốt", "Mỗi ngày uống nước một lần", "Thường xuyên cung cấp đủ nước cho cơ thể"], answerIndex: 3 },
+  { id: 76, "question": "Nước sạch rất cần cho con người, động vật và thực vật đúng hay sai?", options: ["Đúng", "Sai", "Chưa rõ", "Tùy trường hợp"], answerIndex: 0 },
+  { id: 77, question: "Nối mỗi loại vật nuôi ở cột A với cách chăm sóc phù hợp ở cột B. (Chó - ...)", options: ["Cho ăn cám, thóc, tiêm phòng cúm gia cầm", "Thay nước thường xuyên, không để nước bẩn", "Tắm rửa, tiêm phòng dại định kỳ", "Cho ăn rau xanh"], answerIndex: 2 },
+  { id: 78, question: "Thực phẩm cung cấp nhiều năng lượng thuộc nhóm:", options: ["Chất béo", "Chất bột đường", "Chất đạm", "Cả 3 nhóm trên"], answerIndex: 3 },
+  { id: 79, question: "Việc làm nào sau đây KHÔNG giữ gìn bằng chuỗi thức ăn trong tự nhiên?", options: ["Không sử dụng động vật hoang dã làm thức ăn, thuốc", "Trồng nhiều cây xanh", "Bảo vệ rừng", "Xả rác thải chưa qua xử lí ra môi trường"], answerIndex: 3 },
+  { id: 80, question: "Vì sao trong các ao nuôi cá, tôm người ta thường sử dụng quạt nước?", options: ["Để giảm nhiệt độ của nước", "Để các chất vi sinh dinh dưỡng, thuốc, hóa chất đi đều khắp trong ao", "Để tăng lượng khí ô-xi trong ao", "Để tăng khả năng sinh sản của tôm"], answerIndex: 2 },
+  { id: 81, question: "Nếu tưới nước quá nhiều, đất sẽ bị úng và rễ cây không thể hô hấp, dẫn đến cây dễ bị ... hoặc chết.", options: ["Thối rễ", "Héo lá", "Sâu bệnh", "Gãy cành"], answerIndex: 0 },
+  { id: 82, question: "Động vật lấy thức ăn từ không khí đúng hay sai?", options: ["Đúng", "Sai", "Tùy loài", "Chưa rõ"], answerIndex: 1 },
+  { id: 83, question: "Nấm mốc có thể làm thực phẩm:", options: ["Thay đổi màu sắc", "Thay đổi hình dạng", "Thay đổi mùi vị", "Tất cả các đáp án trên đều đúng"], answerIndex: 3 },
+  { id: 84, question: "Chất vi-ta-min có vai trò:", options: ["Tham gia vào thành phần cấu tạo cơ thể, dự trữ và cung cấp năng lượng; giúp hòa tan một số vi-ta-min", "Cần cho cơ thể hoạt động, phòng tránh bệnh và tham gia vào thành phần cấu tạo cơ thể", "Cấu tạo, xây dựng nên cơ thể và tham gia vào hầu hết các hoạt động sống", "Cần cho các hoạt động sống, giúp cơ thể phòng tránh bệnh"], answerIndex: 3 },
+  { id: 85, question: "Chế độ ăn uống cân bằng cần:", options: ["Phối hợp nhiều loại thực phẩm khác nhau", "Các loại thực phẩm có lượng thích hợp", "Ăn nhiều rau xanh, hạn chế hoặc không ăn thịt cá", "Cả a và b"], answerIndex: 3 },
+  { id: 86, question: "Trong tự nhiên, sinh vật này có thể là thức ăn của sinh vật ...", options: ["Khác", "Giống", "Cùng loài", "Cùng nhóm"], answerIndex: 0 },
+  { id: 87, question: "Khi nuôi vật nuôi, việc quan sát môi trường xung quanh giúp:", options: ["Biết được thời tiết và có biện pháp chăm sóc phù hợp", "Chỉ để cho vui", "Chỉ để vật nuôi thích nghi mà không cần chăm sóc", "Không quan trọng, vật nuôi tự thích nghi"], answerIndex: 0 },
+  { id: 88, question: "Một loại thức ăn:", options: ["Chỉ chứa một loại chất dinh dưỡng nhất định", "Có thể chứa nhiều nhất là hai loại chất dinh dưỡng", "Chứa nhiều chất dinh dưỡng khác nhau nên có thể được xếp vào nhiều nhóm", "Chỉ chứa một loại chất dinh dưỡng nhưng có thể được xếp vào nhiều nhóm"], answerIndex: 2 },
+  { id: 89, "question": "Hãy sắp xếp các sinh vật sau để tạo một lưới thức ăn: Cỏ, châu chấu, ếch", options: ["Cỏ → Châu chấu → Ếch", "Cỏ → Ếch → Châu chấu", "Châu chấu → Cỏ → Ếch", "Cỏ → Châu chấu → Ếch"], answerIndex: 0 },
+  { id: 90, question: "Vì sao khi nhiệt độ quá cao, thỏ thường trốn vào hang?", options: ["Vì khi nhiệt độ quá cao, thỏ có thể bị chết nên chúng trốn vào hang tránh nóng", "Vì trong hang nhiều thức ăn hơn", "Khi nhiệt độ quá cao, lượng hơi nước trong không khí thấp, chúng trốn vào hang để có nhiều nước hơn", "Vì trong hang có nhiều không khí hơn"], answerIndex: 0 },
+  { id: 91, question: "Thực vật dùng năng lượng ánh sáng mặt trời để làm gì?", options: ["Trao đổi chất", "Tổng hợp các chất hữu cơ từ các chất vô cơ", "Hô hấp", "Quang hợp"], answerIndex: 1 },
+  { id: 92, question: "Động vật thường xuyên trao đổi chất với môi trường đúng hay sai?", options: ["Đúng", "Sai", "Tùy loài", "Chưa rõ"], answerIndex: 0 },
+  { id: 93, question: "Nấm men có tác dụng:", options: ["Làm bánh mỳ", "Làm rượu", "Làm sữa chua", "Đáp án a và b đúng"], answerIndex: 3 },
+  { id: 94, question: "Chất béo có vai trò:", options: ["Tham gia vào thành phần cấu tạo cơ thể, dự trữ và cung cấp năng lượng; giúp hòa tan một số vi-ta-min", "Cần cho cơ thể hoạt động, phòng tránh bệnh và tham gia vào thành phần cấu tạo cơ thể", "Cấu tạo, xây dựng nên cơ thể và tham gia vào hầu hết các hoạt động sống", "Cần cho các hoạt động sống, giúp cơ thể phòng tránh bệnh"], answerIndex: 0 },
+  { id: 95, question: "Đâu không phải là sản xuất thực phẩm an toàn?", options: ["Không lạm dụng thuốc trừ sâu", "Không lạm dụng phân bón hóa học với cây trồng", "Không sử dụng thuốc tăng trọng đối với vật nuôi", "Sử dụng thuốc kích thích để rau củ nhanh lớn"], answerIndex: 3 },
+  { id: 96, question: "Môi trường gồm các yếu tố như đất, nước, không khí và ...", options: ["Sinh vật", "Ánh sáng", "Nhiệt độ", "Độ ẩm"], answerIndex: 0 },
+  { id: 97, question: "Khi trời nắng gắt, để bảo vệ vật nuôi, chúng ta cần:", options: ["Cho vật nuôi ra ngoài phơi nắng", "Cho vật nuôi vào nơi có bóng mát và đầy đủ nước uống", "Giữ vật nuôi trong chuồng kín, không thông gió", "Không cần làm gì, vật nuôi tự thích nghi"], answerIndex: 1 },
+  { id: 98, question: "Trong các thực phẩm sau đây, loại nào có hàm lượng ca-lo cao nhất?", options: ["Rau xanh", "Ức gà", "Cơm", "Cá chép"], answerIndex: 2 },
+  { id: 99, question: "Nếu thực vật mất đi, không tồn tại thì chuỗi thức ăn sẽ:", options: ["Vẫn bình thường không thay đổi", "Mất đi một mắt xích", "Mất cân bằng hoặc biến mất", "Không kết luận được"], answerIndex: 2 },
+  { id: 100, question: "Trong đợt rét đậm rét hại ở các tỉnh miền núi phía Bắc có hàng loạt trâu, bò chăn thả bị chết vì:", options: ["Vì nhiệt độ quá lạnh, trâu bò không được sưởi ấm kịp thời", "Độ ẩm trong không khí quá cao", "Lượng hơi nước trong không khí thấp", "Lượng ô-xi trong không khí thấp"], answerIndex: 0 }
 ];

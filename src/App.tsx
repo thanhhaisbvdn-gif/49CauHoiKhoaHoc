@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { questions as originalQuestions, Question } from "./data/questions";
+import { mathQuestions, scienceQuestions, Question } from "./data/questions";
 import CatGame from "./components/CatGame";
 import { 
   Trophy, 
@@ -26,6 +26,8 @@ export default function App() {
   const [name, setName] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [mode, setMode] = useState<"exam" | "study">("study");
+  const [subject, setSubject] = useState<"math" | "science">("math");
+  const [questionCount, setQuestionCount] = useState<30 | 60 | 100>(30);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [score, setScore] = useState(0);
@@ -69,8 +71,14 @@ export default function App() {
 
   const handleStart = (selectedMode: "exam" | "study") => {
     if (name.trim()) {
-      // Shuffle questions
-      const shuffled = [...originalQuestions].sort(() => Math.random() - 0.5);
+      // Get questions based on subject
+      const originalQuestions = subject === "math" ? mathQuestions : scienceQuestions;
+      
+      // Shuffle and slice questions
+      const shuffled = [...originalQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, questionCount);
+        
       setQuestions(shuffled);
       setMode(selectedMode);
       setIsStarted(true);
@@ -168,28 +176,66 @@ export default function App() {
             </div>
           </div>
           <h1 className="text-4xl font-black text-center text-gray-800 mb-4 uppercase tracking-tight">
-            Trắc nghiệm khoa học lớp 4
+            Ôn thi lớp 4
           </h1>
-          <p className="text-center text-gray-600 mb-10 text-lg font-medium">
+          <p className="text-center text-gray-600 mb-8 text-lg font-medium">
             Đừng để táo rơi vào đầu chú mèo nhé! 🍎🐱
           </p>
           
           <div className="space-y-6">
             <div>
-              <label className="block text-lg font-bold text-gray-700 mb-2 ml-1">Họ và tên của bạn</label>
+              <label className="block text-base font-bold text-gray-700 mb-2 ml-1 uppercase text-xs tracking-wider">Họ và tên của bạn</label>
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input 
                   type="text" 
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Nhập tên để bắt đầu..."
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:border-orange-400 focus:ring-0 transition-all outline-none font-medium text-lg"
+                  placeholder="Nhập tên của bé..."
+                  className="w-full pl-11 pr-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:border-orange-400 focus:ring-0 transition-all outline-none font-medium text-base"
                 />
               </div>
             </div>
+
+            <div className="space-y-5">
+              <div>
+                <label className="block text-xs font-bold text-gray-400 mb-2 ml-1 uppercase tracking-wider">Chọn môn học</label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button 
+                    onClick={() => setSubject("math")}
+                    className={`py-3.5 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 ${subject === "math" ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-blue-200"}`}
+                  >
+                    <div className={`w-2 h-2 rounded-full ${subject === "math" ? "bg-white" : "bg-gray-200"}`} />
+                    MÔN TOÁN
+                  </button>
+                  <button 
+                    onClick={() => setSubject("science")}
+                    className={`py-3.5 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 ${subject === "science" ? "bg-green-500 text-white border-green-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-green-200"}`}
+                  >
+                    <div className={`w-2 h-2 rounded-full ${subject === "science" ? "bg-white" : "bg-gray-200"}`} />
+                    KHOA HỌC
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-400 mb-2 ml-1 uppercase tracking-wider">Số lượng câu hỏi</label>
+                <div className="grid grid-cols-3 gap-3">
+                  {[30, 60, 100].map(count => (
+                    <button 
+                      key={count}
+                      onClick={() => setQuestionCount(count as any)}
+                      className={`py-3 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 ${questionCount === count ? "bg-purple-500 text-white border-purple-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-purple-200"}`}
+                    >
+                      <div className={`w-1.5 h-1.5 rounded-full ${questionCount === count ? "bg-white" : "bg-gray-200"}`} />
+                      {count} CÂU
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
             
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 pt-2">
               <button 
                 onClick={() => handleStart("study")}
                 disabled={!name.trim()}
