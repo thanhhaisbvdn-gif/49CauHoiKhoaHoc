@@ -156,6 +156,7 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
   const messageAudio = useRef<HTMLAudioElement | null>(null);
   const correctAudio = useRef<HTMLAudioElement | null>(null);
   const incorrectAudio = useRef<HTMLAudioElement | null>(null);
+  const lastInitializedSessionRef = useRef<string | null>(null);
 
   useEffect(() => {
     messageAudio.current = new Audio("https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3");
@@ -304,14 +305,21 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
 
   // Load questions when game starts
   useEffect(() => {
-    if (currentRoom?.status === "playing" && currentRoom.questionIds) {
+    if (currentRoom?.status === "playing" && currentRoom.questionIds && currentRoom.startTime) {
+      const startTimeVal = (currentRoom.startTime as any)?.seconds || currentRoom.startTime;
+      const sessionKey = `${currentRoom.id}-${startTimeVal}`;
+      
+      // Only initialize if this is a new session
+      if (lastInitializedSessionRef.current === sessionKey) {
+        return;
+      }
+
       const allQuestions = currentRoom.subject === "math" ? mathQuestions : scienceQuestions;
       const roomQuestions = currentRoom.questionIds.map(id => 
         allQuestions.find(q => q.id === id)
       ).filter(Boolean) as Question[];
       
       // Shuffle locally so everyone has a different order but same set of questions
-      // Use a more reliable shuffle (Fisher-Yates)
       const shuffled = [...roomQuestions];
       for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -320,8 +328,11 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
       
       setQuestions(shuffled);
       setLocalQuestionIndex(0);
+      lastInitializedSessionRef.current = sessionKey;
+    } else if (currentRoom?.status !== "playing") {
+      lastInitializedSessionRef.current = null;
     }
-  }, [currentRoom?.status, currentRoom?.questionIds, currentRoom?.subject]);
+  }, [currentRoom?.status, currentRoom?.id, currentRoom?.startTime, currentRoom?.questionIds]);
 
   const createRoom = async () => {
     if (!newRoomName.trim() || isCreatingRoom) return;
