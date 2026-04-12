@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow anyone to read and write to rooms and their subcollections for the prototype
+    // This is to bypass permission-denied errors while the user configures Auth
+    match /rooms/{roomId} {
+      allow read, write: if true;
+      
+      match /participants/{participantId} {
+        allow read, write: if true;
+      }
+      
+      match /messages/{messageId} {
+        allow read, write: if true;
+      }
+    }
+    
+    // Default deny for everything else
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

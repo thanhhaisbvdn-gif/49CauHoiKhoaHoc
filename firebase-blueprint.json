@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "Room": {
+      "title": "Room",
+      "description": "A multiplayer exam room",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Name of the room" },
+        "hostId": { "type": "string", "description": "UID of the room creator" },
+        "subject": { "type": "string", "enum": ["math", "science"], "description": "Selected subject" },
+        "questionCount": { "type": "number", "enum": [30, 60, 100], "description": "Number of questions" },
+        "status": { "type": "string", "enum": ["waiting", "playing", "finished"], "description": "Current status of the room" },
+        "currentQuestionIndex": { "type": "number", "description": "Index of the current question being answered" },
+        "startTime": { "type": "number", "description": "Timestamp when the exam started" },
+        "lastActive": { "type": "number", "description": "Timestamp of the last activity (heartbeat)" },
+        "questionIds": { "type": "array", "items": { "type": "number" }, "description": "List of question IDs for this session" }
+      },
+      "required": ["title", "hostId", "status"]
+    },
+    "Participant": {
+      "title": "Participant",
+      "description": "A user participating in a room",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Display name of the user" },
+        "score": { "type": "number", "description": "Number of correct answers" },
+        "incorrect": { "type": "number", "description": "Number of incorrect answers" },
+        "isFinished": { "type": "boolean", "description": "Whether the user has finished the exam" },
+        "lastAnswerResult": { "type": "string", "enum": ["correct", "incorrect", null], "description": "Result of the last answer" }
+      },
+      "required": ["name", "score", "incorrect", "isFinished"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "A message in the room chat",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string", "description": "UID of the sender" },
+        "senderName": { "type": "string", "description": "Name of the sender" },
+        "text": { "type": "string", "description": "Message content" },
+        "timestamp": { "type": "number", "description": "Server timestamp" }
+      },
+      "required": ["senderId", "senderName", "text", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/rooms/{roomId}": {
+      "schema": "Room",
+      "description": "Collection of active exam rooms"
+    },
+    "/rooms/{roomId}/participants/{participantId}": {
+      "schema": "Participant",
+      "description": "Participants in a specific room"
+    },
+    "/rooms/{roomId}/messages/{messageId}": {
+      "schema": "ChatMessage",
+      "description": "Chat messages in a specific room"
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { mathQuestions, scienceQuestions, Question } from "./data/questions";
 import CatGame from "./components/CatGame";
+import MultiplayerRoom from "./components/MultiplayerRoom";
 import { 
   Trophy, 
   Timer, 
@@ -10,6 +11,7 @@ import {
   Download, 
   RefreshCcw, 
   User, 
+  Users,
   Play,
   AlertTriangle
 } from "lucide-react";
@@ -25,6 +27,7 @@ const SOUNDS = {
 export default function App() {
   const [name, setName] = useState("");
   const [isStarted, setIsStarted] = useState(false);
+  const [isMultiplayer, setIsMultiplayer] = useState(false);
   const [mode, setMode] = useState<"exam" | "study">("study");
   const [subject, setSubject] = useState<"math" | "science">("math");
   const [questionCount, setQuestionCount] = useState<30 | 60 | 100>(30);
@@ -162,100 +165,116 @@ export default function App() {
     setShowReview(false);
   };
 
+  if (isMultiplayer) {
+    return <MultiplayerRoom userName={name || "Thí sinh"} onExit={() => setIsMultiplayer(false)} />;
+  }
+
   if (!isStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4 font-sans">
+      <div className="min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 flex items-center justify-center p-4 font-sans relative">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border-b-8 border-orange-400"
+          className="bg-white p-6 rounded-3xl shadow-2xl max-w-md w-full border-b-8 border-orange-400"
         >
-          <div className="flex justify-center mb-6">
-            <div className="bg-orange-400 p-4 rounded-full">
-              <Trophy className="w-12 h-12 text-white" />
+          <div className="flex justify-center mb-4">
+            <div className="bg-orange-400 p-3 rounded-full">
+              <Trophy className="w-8 h-8 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl font-black text-center text-gray-800 mb-4 uppercase tracking-tight">
+          <h1 className="text-3xl font-black text-center text-gray-800 mb-2 uppercase tracking-tight">
             Ôn thi lớp 4
           </h1>
-          <p className="text-center text-gray-600 mb-8 text-lg font-medium">
-            Đừng để táo rơi vào đầu chú mèo nhé! 🍎🐱
+          <p className="text-center text-gray-600 mb-6 text-base font-medium">
+            Cùng học với nhau nào các bạn.
           </p>
           
-          <div className="space-y-6">
-            <div>
-              <label className="block text-base font-bold text-gray-700 mb-2 ml-1 uppercase text-xs tracking-wider">Họ và tên của bạn</label>
+          <div className="space-y-4">
+            <div className="bg-gray-50 p-3 rounded-2xl border-2 border-gray-100">
+              <label className="block text-base font-bold text-gray-700 mb-1 ml-1 uppercase text-[10px] tracking-wider">Nhập tên của bạn để bắt đầu</label>
               <div className="relative">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <input 
                   type="text" 
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Nhập tên của bé..."
-                  className="w-full pl-11 pr-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:border-orange-400 focus:ring-0 transition-all outline-none font-medium text-base"
+                  className="w-full pl-10 pr-4 py-2 bg-white border-2 border-gray-200 rounded-2xl focus:border-orange-400 focus:ring-0 transition-all outline-none font-medium text-sm"
                 />
               </div>
             </div>
 
-            <div className="space-y-5">
+            {/* Phần tự học */}
+            <div className="p-4 rounded-3xl border-2 border-green-100 bg-green-50/30 space-y-4">
+              <h3 className="text-[10px] font-black text-green-600 uppercase tracking-widest text-center">Phần tự học</h3>
               <div>
-                <label className="block text-xs font-bold text-gray-400 mb-2 ml-1 uppercase tracking-wider">Chọn môn học</label>
-                <div className="grid grid-cols-2 gap-3">
+                <label className="block text-[10px] font-bold text-gray-400 mb-1.5 ml-1 uppercase tracking-wider">Chọn môn học</label>
+                <div className="grid grid-cols-2 gap-2">
                   <button 
                     onClick={() => setSubject("math")}
-                    className={`py-3.5 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 ${subject === "math" ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-blue-200"}`}
+                    className={`py-2.5 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 text-sm ${subject === "math" ? "bg-blue-500 text-white border-blue-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-blue-200"}`}
                   >
-                    <div className={`w-2 h-2 rounded-full ${subject === "math" ? "bg-white" : "bg-gray-200"}`} />
+                    <div className={`w-1.5 h-1.5 rounded-full ${subject === "math" ? "bg-white" : "bg-gray-200"}`} />
                     MÔN TOÁN
                   </button>
                   <button 
                     onClick={() => setSubject("science")}
-                    className={`py-3.5 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 ${subject === "science" ? "bg-green-500 text-white border-green-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-green-200"}`}
+                    className={`py-2.5 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 text-sm ${subject === "science" ? "bg-green-500 text-white border-green-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-green-200"}`}
                   >
-                    <div className={`w-2 h-2 rounded-full ${subject === "science" ? "bg-white" : "bg-gray-200"}`} />
+                    <div className={`w-1.5 h-1.5 rounded-full ${subject === "science" ? "bg-white" : "bg-gray-200"}`} />
                     KHOA HỌC
                   </button>
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-400 mb-2 ml-1 uppercase tracking-wider">Số lượng câu hỏi</label>
-                <div className="grid grid-cols-3 gap-3">
+                <label className="block text-[10px] font-bold text-gray-400 mb-1.5 ml-1 uppercase tracking-wider">Số lượng câu hỏi</label>
+                <div className="grid grid-cols-3 gap-2">
                   {[30, 60, 100].map(count => (
                     <button 
                       key={count}
                       onClick={() => setQuestionCount(count as any)}
-                      className={`py-3 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 ${questionCount === count ? "bg-purple-500 text-white border-purple-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-purple-200"}`}
+                      className={`py-2 rounded-2xl font-black transition-all border-2 flex items-center justify-center gap-2 text-xs ${questionCount === count ? "bg-purple-500 text-white border-purple-600 shadow-lg scale-[1.02]" : "bg-white text-gray-400 border-gray-100 hover:border-purple-200"}`}
                     >
-                      <div className={`w-1.5 h-1.5 rounded-full ${questionCount === count ? "bg-white" : "bg-gray-200"}`} />
+                      <div className={`w-1 h-1 rounded-full ${questionCount === count ? "bg-white" : "bg-gray-200"}`} />
                       {count} CÂU
                     </button>
                   ))}
                 </div>
               </div>
+              
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <button 
+                  onClick={() => handleStart("study")}
+                  disabled={!name.trim()}
+                  className="bg-green-500 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-2xl shadow-lg transform active:scale-95 transition-all flex flex-col items-center justify-center gap-0.5 text-lg uppercase"
+                >
+                  <span className="text-[10px] font-bold opacity-80">Chế độ</span>
+                  HỌC
+                </button>
+                <button 
+                  onClick={() => handleStart("exam")}
+                  disabled={!name.trim()}
+                  className="bg-orange-400 hover:bg-orange-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-black py-3.5 rounded-2xl shadow-lg transform active:scale-95 transition-all flex flex-col items-center justify-center gap-0.5 text-lg uppercase"
+                >
+                  <span className="text-[10px] font-bold opacity-80">Chế độ</span>
+                  THI
+                </button>
+              </div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-4 pt-2">
+
+            {/* Phần thi trực tuyến */}
+            <div className="p-4 rounded-3xl border-2 border-blue-100 bg-blue-50/30 space-y-3">
+              <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-widest text-center">Phần thi trực tuyến</h3>
               <button 
-                onClick={() => handleStart("study")}
+                onClick={() => setIsMultiplayer(true)}
                 disabled={!name.trim()}
-                className="bg-green-500 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-black py-5 rounded-2xl shadow-lg transform active:scale-95 transition-all flex flex-col items-center justify-center gap-1 text-xl uppercase"
+                className="w-full bg-blue-500 hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-black py-3 rounded-2xl shadow-lg transform active:scale-95 transition-all flex items-center justify-center gap-2 text-base uppercase"
               >
-                <span className="text-sm font-bold opacity-80">Chế độ</span>
-                HỌC
-              </button>
-              <button 
-                onClick={() => handleStart("exam")}
-                disabled={!name.trim()}
-                className="bg-orange-400 hover:bg-orange-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-black py-5 rounded-2xl shadow-lg transform active:scale-95 transition-all flex flex-col items-center justify-center gap-1 text-xl uppercase"
-              >
-                <span className="text-sm font-bold opacity-80">Chế độ</span>
-                THI
+                <Users className="w-5 h-5" />
+                Phòng thi trực tuyến
               </button>
             </div>
-            <p className="text-xs text-center text-gray-400 font-bold">
-              * Chế độ THI sẽ kết thúc nếu sai 5 câu
-            </p>
           </div>
         </motion.div>
       </div>
@@ -377,7 +396,7 @@ export default function App() {
               
               <div className="flex items-center gap-2 bg-green-50 px-4 py-2 rounded-xl">
                 <CheckCircle2 className="w-5 h-5 text-green-600" />
-                <span className="font-black text-green-700 text-lg">{score}</span>
+                <span className="font-black text-green-700 text-lg">{score}/{score + incorrect}</span>
               </div>
 
               <div className="flex items-center gap-2 bg-red-50 px-4 py-2 rounded-xl">
@@ -395,6 +414,11 @@ export default function App() {
               <span className="bg-orange-100 text-orange-700 px-4 py-1 rounded-full font-black text-sm uppercase">
                 Câu {currentIdx + 1} / {questions.length}
               </span>
+              {mode === "exam" && (
+                <span className="text-[10px] font-bold text-red-500 uppercase animate-pulse">
+                  * Sai 5 câu sẽ kết thúc
+                </span>
+              )}
               <div className="w-24 h-1.5 bg-gray-100 rounded-full overflow-hidden">
                 <motion.div 
                   className="h-full bg-orange-400"
