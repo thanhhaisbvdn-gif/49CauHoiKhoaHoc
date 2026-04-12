@@ -141,6 +141,7 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
   const [messages, setMessages] = useState<Message[]>([]);
   const [newMessage, setNewMessage] = useState("");
   const [isCreating, setIsCreating] = useState(false);
+  const [isCreatingRoom, setIsCreatingRoom] = useState(false);
   const [newRoomName, setNewRoomName] = useState("");
   const [selectedTheme, setSelectedTheme] = useState<"garden" | "animals" | "space">("garden");
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -308,13 +309,25 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
       const roomQuestions = currentRoom.questionIds.map(id => 
         allQuestions.find(q => q.id === id)
       ).filter(Boolean) as Question[];
-      setQuestions(roomQuestions);
+      
+      // Shuffle locally so everyone has a different order but same set of questions
+      // Use a more reliable shuffle (Fisher-Yates)
+      const shuffled = [...roomQuestions];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      
+      setQuestions(shuffled);
       setLocalQuestionIndex(0);
     }
   }, [currentRoom?.status, currentRoom?.questionIds, currentRoom?.subject]);
 
   const createRoom = async () => {
-    if (!newRoomName.trim()) return;
+    if (!newRoomName.trim() || isCreatingRoom) return;
+    
+    setIsCreatingRoom(true);
+    setIsCreating(false); // Close modal immediately
     
     try {
       const user = await ensureAuth() as FirebaseUser;
@@ -357,8 +370,11 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
       setIsCreating(false);
       setNewRoomName("");
     } catch (error) {
+      setIsCreating(false);
       const errInfo = handleFirestoreError(error, OperationType.CREATE, "rooms");
       alert(`Không thể tạo phòng: ${errInfo.error}`);
+    } finally {
+      setIsCreatingRoom(false);
     }
   };
 
@@ -858,7 +874,7 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
         </div>
 
         {/* Chat Window */}
-        <div className={`w-full lg:w-80 ${themeStyles.card} rounded-3xl shadow-xl border-b-8 flex flex-col h-[500px] lg:h-auto overflow-hidden relative`}>
+        <div className={`w-full lg:w-80 shrink-0 ${themeStyles.card} rounded-3xl shadow-xl border-b-8 flex flex-col h-[500px] lg:h-auto overflow-hidden relative`}>
           {/* Chat Background Decoration */}
           <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center text-9xl">
             {themeStyles.icon}
@@ -1065,7 +1081,7 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
           </div>
 
           {/* Chat Window (Side) */}
-          <div className={`w-full lg:w-80 ${themeStyles.card} rounded-3xl shadow-xl border-b-8 flex flex-col h-[400px] lg:h-auto overflow-hidden relative`} onMouseEnter={() => setHasUnreadMessages(false)}>
+          <div className={`w-full lg:w-80 shrink-0 ${themeStyles.card} rounded-3xl shadow-xl border-b-8 flex flex-col h-[400px] lg:h-auto overflow-hidden relative`} onMouseEnter={() => setHasUnreadMessages(false)}>
             {/* Chat Background Decoration */}
             <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center text-9xl">
               {themeStyles.icon}
