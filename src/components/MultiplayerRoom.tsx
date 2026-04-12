@@ -153,9 +153,13 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
   const [hasUnreadMessages, setHasUnreadMessages] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   const messageAudio = useRef<HTMLAudioElement | null>(null);
+  const correctAudio = useRef<HTMLAudioElement | null>(null);
+  const incorrectAudio = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     messageAudio.current = new Audio("https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3");
+    correctAudio.current = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
+    incorrectAudio.current = new Audio("https://assets.mixkit.co/active_storage/sfx/951/951-preview.mp3");
   }, []);
 
   useEffect(() => {
@@ -460,6 +464,13 @@ export default function MultiplayerRoom({ userName: initialUserName, onExit }: M
     
     setSelectedAnswer(idx);
     setLastResult(isCorrect ? "correct" : "incorrect");
+
+    // Play sound
+    if (isCorrect) {
+      correctAudio.current?.play().catch(() => {});
+    } else {
+      incorrectAudio.current?.play().catch(() => {});
+    }
 
     const participantRef = doc(db, `rooms/${currentRoom.id}/participants`, user.uid);
     const p = participants.find(p => p.id === user.uid);

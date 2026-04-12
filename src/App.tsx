@@ -13,7 +13,8 @@ import {
   User, 
   Users,
   Play,
-  AlertTriangle
+  AlertTriangle,
+  LogOut
 } from "lucide-react";
 import { toPng } from "html-to-image";
 import confetti from "canvas-confetti";
@@ -42,6 +43,7 @@ export default function App() {
   const [lastResult, setLastResult] = useState<"correct" | "incorrect" | null>(null);
   const [incorrectQuestions, setIncorrectQuestions] = useState<{ question: Question, selected: number }[]>([]);
   const [showReview, setShowReview] = useState(false);
+  const [showConfirmExit, setShowConfirmExit] = useState(false);
 
   const resultRef = useRef<HTMLDivElement>(null);
   const correctAudio = useRef<HTMLAudioElement | null>(null);
@@ -163,6 +165,7 @@ export default function App() {
     setLastResult(null);
     setIncorrectQuestions([]);
     setShowReview(false);
+    setShowConfirmExit(false);
   };
 
   if (isMultiplayer) {
@@ -388,24 +391,68 @@ export default function App() {
               </div>
             </div>
 
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-xl">
-                <Timer className="w-5 h-5 text-blue-600" />
-                <span className="font-black text-blue-700 text-lg tabular-nums">{formatTime(elapsed)}</span>
+            <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
+              <div className="flex items-center gap-2 bg-blue-50 px-3 py-1.5 rounded-xl">
+                <Timer className="w-4 h-4 text-blue-600" />
+                <span className="font-black text-blue-700 text-base tabular-nums">{formatTime(elapsed)}</span>
               </div>
               
-              <div className="flex items-center gap-2 bg-green-50 px-4 py-2 rounded-xl">
-                <CheckCircle2 className="w-5 h-5 text-green-600" />
-                <span className="font-black text-green-700 text-lg">{score}/{score + incorrect}</span>
+              <div className="flex items-center gap-2 bg-green-50 px-3 py-1.5 rounded-xl">
+                <CheckCircle2 className="w-4 h-4 text-green-600" />
+                <span className="font-black text-green-700 text-base">{score}/{score + incorrect}</span>
               </div>
 
-              <div className="flex items-center gap-2 bg-red-50 px-4 py-2 rounded-xl">
-                <XCircle className="w-5 h-5 text-red-600" />
-                <span className="font-black text-red-700 text-lg">{incorrect}</span>
+              <div className="flex items-center gap-2 bg-red-50 px-3 py-1.5 rounded-xl">
+                <XCircle className="w-4 h-4 text-red-600" />
+                <span className="font-black text-red-700 text-base">{incorrect}</span>
               </div>
+
+              <button 
+                onClick={() => setShowConfirmExit(true)}
+                className="flex items-center gap-2 px-3 py-1.5 bg-red-500 text-white font-black rounded-xl hover:bg-red-600 transition-all uppercase text-[10px] shadow-sm"
+              >
+                <LogOut className="w-3 h-3" />
+                {mode === "exam" ? "Dừng thi" : "Dừng học"}
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Exit Confirmation Modal */}
+        <AnimatePresence>
+          {showConfirmExit && (
+            <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[100]">
+              <motion.div 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="bg-white p-8 rounded-3xl shadow-2xl max-w-sm w-full text-center"
+              >
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center text-red-500 mx-auto mb-4">
+                  <AlertTriangle className="w-8 h-8" />
+                </div>
+                <h2 className="text-xl font-black text-gray-800 mb-2 uppercase">Xác nhận thoát</h2>
+                <p className="text-gray-500 font-medium mb-6">
+                  Bạn có chắc chắn muốn dừng {mode === "exam" ? "thi" : "học"} không? Kết quả hiện tại sẽ không được lưu.
+                </p>
+                <div className="flex gap-3">
+                  <button 
+                    onClick={() => setShowConfirmExit(false)}
+                    className="flex-1 py-3 bg-gray-100 text-gray-500 font-black rounded-2xl hover:bg-gray-200 transition-all uppercase text-sm"
+                  >
+                    Tiếp tục
+                  </button>
+                  <button 
+                    onClick={resetQuiz}
+                    className="flex-1 py-3 bg-red-500 text-white font-black rounded-2xl hover:bg-red-600 shadow-lg transition-all uppercase text-sm"
+                  >
+                    Thoát
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
 
         {/* Middle Section: Question Area (Takes most space) */}
         <div className="flex-1 min-h-0 flex flex-col mb-24">
